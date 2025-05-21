@@ -1,0 +1,4 @@
+node_modules/
+.env
+
+# .gitignore tells Git to not upload huge or sensitive files (like node_modules or .env) to GitHub.
