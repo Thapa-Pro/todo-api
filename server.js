@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 
 // 2. Load environment variables from .env file
-dotenv.config();
+dotenv.config(); // Load the secret settings from the .env file and make them available in the code.
 
 // 3. Create an Express app
 const app = express();
@@ -20,14 +20,13 @@ mongoose
 
 // 6. Import custom routes
 const keyRoutes = require("./routes/keyRoutes");
-// Later we will also add:
-// const authRoutes = require("./routes/authRoutes");
-// const todoRoutes = require("./routes/todoRoutes");
+const authRoutes = require("./routes/authRoutes");
+const todoRoutes = require("./routes/todoRoutes");
 
 // 7. Use the routes
 app.use("/api/keys", keyRoutes);
-// app.use("/api/auth", authRoutes);
-// app.use("/api/todos", todoRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/todos", todoRoutes);
 
 // 8. Optional: Home route for testing
 app.get("/", (req, res) => {
